@@ -9,5 +9,10 @@ Je suis étudiante FPA en deuxième année.
 ## Mon projet
 Je n'ai pas encore d'idée de projet, étant donné qu'on ne sait pas encore ce que l'on va devoir faire...
 
-# Comment me trouver
+## Comment me trouver
 - GitHub : AxelleM291
+
+## 3 sites
+- [Google](https://www.google.com/)
+- [Pinterest](https://fr.pinterest.com/)
+- [YouTube](https://www.youtube.com/)
