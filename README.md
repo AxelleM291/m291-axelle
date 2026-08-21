@@ -16,3 +16,5 @@ Je n'ai pas encore d'idée de projet, étant donné qu'on ne sait pas encore ce 
 - [Google](https://www.google.com/)
 - [Pinterest](https://fr.pinterest.com/)
 - [YouTube](https://www.youtube.com/)
+
+_Repo cloné et ouvert dans VS Code._
