@@ -51,13 +51,23 @@
     <button type="button" id="magic">Cliquez-moi</button>
   </main>
 
-  <script>
+  <!-- Version ChatGPT plus long 
+    <script>
     const magic = document.getElementById("magic");
 
     magic.addEventListener("click", function() {
       magic.style.backgroundColor = "#e36414";
       magic.style.color = "white";
     });
+  </script>-->
+
+  <!-- Version Claude plus court -->
+  <script>
+    document.getElementById("magic").addEventListener("click", function () {
+      this.style.backgroundColor = "#e36414";
+      this.style.color = "white";
+    });
   </script>
+</body>
 </body>
 </html>
