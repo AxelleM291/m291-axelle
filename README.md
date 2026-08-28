@@ -18,3 +18,5 @@ Je n'ai pas encore d'idée de projet, étant donné qu'on ne sait pas encore ce 
 - [YouTube](https://www.youtube.com/)
 
 _Repo cloné et ouvert dans VS Code._
+
+Page profil : https://axellem291.github.io/m291-axelle/
