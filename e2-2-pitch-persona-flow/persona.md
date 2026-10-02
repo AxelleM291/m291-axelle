@@ -17,7 +17,7 @@ Smartphone reconditionné avec un forfait data limité.
 **Besoins fonctionnels**
 Savoir rapidement l'espèce de l'arbre ou de l'arbustre tout en apprenant au fur et à mesure de son utilisation de l'application à reconnaître par soi-même les plantes de nos régions, de manière à se sentir plus connecté à la terre et à ce qui l'entoure.
 
-**Irritants majeurs**
+**Irritations majeurs**
 Les sites compliqués d'accès, où il faut se créer un compte ou alors fermer des publicités en cliquant sur des boutons minuscules. Le manque d'explication des termes spécifiques permettant de différencier les feuilles, qui rende la recherche trop compliquée.
 
 **Citation**
