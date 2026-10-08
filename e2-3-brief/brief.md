@@ -36,9 +36,11 @@ arbre
 - Informations textuelles sur l'arbre
 
 ## Ambiance visuelle
-- Naturel
+- Nature
 - Chaleureux
 - Rafraichissant
+- Simplicité
+- Apprentissage
 
 ## 3 directions artistiques
 1. Sobre
