@@ -1,15 +1,56 @@
 # Brief - Arboris
 ## Pitch
+### Concept
 Mon application servira aux gens intéressés à reconnaître les arbres et arbustes de nos régions, en fonction des feuilles de la plante en question. L'application sera principalement utilisées sur mobile et proposera directement à son ouverture des filtres pour identifier l'arbre face à l'utilisateur. Il n'y a pas de compte.
 
+### Pour qui
+Les adultes intéressés par les arbres de nos régions, mais qui n'ont pas le temps de tout apprendre par coeur dans un livre.
+
+### Quel besoin réel non satisfait
+Apprendre à reconnaître des arbres par coeur prend du temps, et nécessite souvent un livre qu'il faut payer ou alors empreinter à la bibliothèque, mais que l'on n'a jamais sur soit au moment où l'on veut l'utiliser.
+
+### La solution
+Les arbres sont dehors, et la seule chose qu'on prend systhématiquement avec nous lorsqu'on sort, c'est notre téléphone. L'application web propose donc d'afficher en quelques clics à peine l'arbre qui se trouve en face de vous, sans création de compte et sans publicité, ce qui vous permet d'apprendre au fur et à mesure à reconnaître les différents arbres.
+
 ## Public
-Dominique Dujardin, un enseignant de 50 ans résidant à Ste-Croix, utilise un smartphone reconditionné au forfait internet limité pour identifier et apprendre à reconnaître les arbres de sa région. Pour répondre à ses besoins de reconnexion à la nature et éliminer ses frustrations liées aux interfaces complexes, aux publicités et au jargon botanique incompréhensible, le produit devra suivre des règles de conception strictes : une approche mobile-first, une accessibilité immédiate sans création de compte ni publicité, une ouverture directe sur les filtres de sélection, et une explication claire des termes techniques pour garantir un apprentissage simple et rapide.
+### Persona
+**Nom et prénom**
+Dominique Dujardin
+
+**Âge**
+50 ans
+
+**Lieu de résidence**
+Ste-Croix
+
+**Métier**
+Enseignant en secondaire 1
+
+**Appareil principal**
+Smartphone reconditionné avec un forfait data limité. 
+
+**Besoins fonctionnels**
+Savoir rapidement l'espèce de l'arbre ou de l'arbustre tout en apprenant au fur et à mesure de son utilisation de l'application à reconnaître par soi-même les plantes de nos régions, de manière à se sentir plus connecté à la terre et à ce qui l'entoure.
+
+**Irritations majeurs**
+Les sites compliqués d'accès, où il faut se créer un compte ou alors fermer des publicités en cliquant sur des boutons minuscules. Le manque d'explication des termes spécifiques permettant de différencier les feuilles, qui rende la recherche trop compliquée.
+
+**Citation**
+« Je veux un outil pratique pour identifier et apprendre les arbres de la régions, avec lequel j'ai pas besoin de me casser la tête sur des termes compliqués ou une interface que je ne comprends pas. »
 
 ## Écrans
 - accueil
 - criteres
 - options
 - arbre
+
+## User-flow
+1. Dominique clic sur le bouton filtre
+2. Dominique choisi le critère à modifier
+3. Dominique choisi les options correpsondantes à la feuille
+4. Dominique valide les options
+5. Dominique valide les critères
+6. Dominique regarde la liste des arbres proposés et clic sur celui qui semble correspondre
 
 ## Contenu de chaque écran
 accueil : 
@@ -83,9 +124,14 @@ Couleurs
 Formes : grands aplats de couleur, cartes très graphiques
 Particularité : Chaque critère pourrait avoir son propre pictogramme
 
-## Interdits
-- Pas de Bootstrap
+## Règles de conception
+- Mobile first
 - Pas de création de compte
 - Pas de publicité
-- Interface pas pratique, qui ne s'ouvre pas directement sur les filtres de sélection, ce qui fait perdre du temps (et des clics)
-- Des termes spécifiques qui n'ont pas d'explication
+- Interface pratique, qui s'ouvre directement sur les filtres de sélection de manière à ne pas perdre du temps
+- Une explication accompagnant les termes spécifiques pour permettre d'apprendre tout en étant facile d'accès
+
+## Interdits
+- Bootstrap
+- Création de compte
+- Publicité
