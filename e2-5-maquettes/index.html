@@ -1,818 +1,282 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Arboris — Identifier les arbres</title>
-
-    <!--
-        Les CSS seront ajoutés plus tard :
-        - sobre.css
-        - chaleureuse.css
-        - audacieuse.css
-    -->
+    <meta name="description" content="Arboris permet d'identifier les arbres et arbustes de nos régions grâce aux caractéristiques de leurs feuilles.">
+    <title>Arboris — Identifier un arbre</title>
+    <link rel="stylesheet" href="style/sobre.css">
 </head>
 
 <body>
-
-    <!-- =====================================================
-         EN-TÊTE
-    ====================================================== -->
-
-    <header>
-        <a href="#accueil" aria-label="Retour à l'accueil">
-            <strong>Arboris</strong>
-        </a>
+    <header class="site-header">
+        <a class="logo" href="index.html">Arboris</a>
     </header>
 
-
     <main>
-
-        <!-- =================================================
-             ÉCRAN 1 — ACCUEIL
-        ================================================== -->
-
-        <section id="accueil" aria-labelledby="titre-accueil">
-
-            <header>
+        <section class="home" aria-labelledby="titre-accueil">
+            <header class="home-header">
                 <h1 id="titre-accueil">Identifier un arbre</h1>
-
-                <p>
-                    Sélectionnez les caractéristiques de la feuille
-                    pour trouver l'arbre qui vous fait face.
-                </p>
+                <p>Choisissez les caractéristiques de la plante pour trouver les arbres qui correspondent.</p>
             </header>
 
-
-            <!-- Bouton pour ouvrir les critères -->
-
-            <nav aria-label="Filtres">
-
-                <a href="#criteres">
-                    Filtrer la sélection
-                </a>
-
-                <a href="#accueil">
-                    Supprimer les filtres
-                </a>
-
-            </nav>
-
-
-            <!-- Résultats -->
-
-            <section aria-labelledby="titre-resultats">
-
-                <h2 id="titre-resultats">Arbres correspondants</h2>
-
-                <ul>
-
-                    <!-- Carte arbre -->
-
-                    <li>
-                        <article>
-
-                            <a href="#arbre-erable">
-
-                                <figure>
-                                    <img
-                                        src="images/erable.jpg"
-                                        alt="Feuille et arbre d'un érable"
-                                    >
-                                    <figcaption>Érable</figcaption>
-                                </figure>
-
-                                <h3>Érable</h3>
-
-                            </a>
-
-                        </article>
-                    </li>
-
-
-                    <!-- Carte arbre -->
-
-                    <li>
-                        <article>
-
-                            <a href="#arbre-chene">
-
-                                <figure>
-                                    <img
-                                        src="images/chene.jpg"
-                                        alt="Feuille et arbre d'un chêne"
-                                    >
-                                    <figcaption>Chêne</figcaption>
-                                </figure>
-
-                                <h3>Chêne</h3>
-
-                            </a>
-
-                        </article>
-                    </li>
-
-
-                    <!-- Carte arbre -->
-
-                    <li>
-                        <article>
-
-                            <a href="#arbre-hetre">
-
-                                <figure>
-                                    <img
-                                        src="images/hetre.jpg"
-                                        alt="Feuille et arbre d'un hêtre"
-                                    >
-                                    <figcaption>Hêtre</figcaption>
-                                </figure>
-
-                                <h3>Hêtre</h3>
-
-                            </a>
-
-                        </article>
-                    </li>
-
-
-                    <!-- Carte arbre -->
-
-                    <li>
-                        <article>
-
-                            <a href="#arbre-bouleau">
-
-                                <figure>
-                                    <img
-                                        src="images/bouleau.jpg"
-                                        alt="Feuille et arbre d'un bouleau"
-                                    >
-                                    <figcaption>Bouleau</figcaption>
-                                </figure>
-
-                                <h3>Bouleau</h3>
-
-                            </a>
-
-                        </article>
-                    </li>
-
-                </ul>
-
-            </section>
-
-        </section>
-
-
-
-        <!-- =================================================
-             ÉCRAN 2 — CRITÈRES
-        ================================================== -->
-
-        <section id="criteres" aria-labelledby="titre-criteres">
-
-            <header>
-
-                <a href="#accueil" aria-label="Fermer les critères">
-                    ×
-                </a>
-
-                <h2 id="titre-criteres">Critères</h2>
-
-            </header>
-
-
-            <form>
-
-                <fieldset>
-
-                    <legend>
-                        Caractéristiques de la feuille
-                    </legend>
-
-
-                    <!-- Critère 1 -->
-
-                    <p>
-                        <a href="#options-forme">
-                            <span>Forme de la feuille</span>
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </p>
-
-
-                    <!-- Critère 2 -->
-
-                    <p>
-                        <a href="#options-bord">
-                            <span>Bord de la feuille</span>
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </p>
-
-
-                    <!-- Critère 3 -->
-
-                    <p>
-                        <a href="#options-disposition">
-                            <span>Disposition des feuilles</span>
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </p>
-
-
-                    <!-- Critère 4 -->
-
-                    <p>
-                        <a href="#options-feuille">
-                            <span>Type de feuille</span>
-                            <span aria-hidden="true">→</span>
-                        </a>
-                    </p>
-
-                </fieldset>
-
-
-                <!-- Valider les critères -->
-
-                <p>
-                    <a href="#accueil">
-                        Rechercher
+            <div class="filter-actions">
+                <a class="button button-primary" href="#criteres">Filtrer la sélection</a>
+                <a class="clear-filters" href="index.html">Supprimer les filtres</a>
+            </div>
+
+            <section class="results" aria-labelledby="titre-resultats">
+                <h2 id="titre-resultats">Arbres</h2>
+
+                <div class="tree-grid">
+                    <a class="tree-card" href="arbre/erable.html">
+                        <img src="images/erable.jpg" alt="Érable">
+                        <span>Érable</span>
                     </a>
-                </p>
 
-            </form>
+                    <a class="tree-card" href="arbre/chene.html">
+                        <img src="images/chene.jpg" alt="Chêne">
+                        <span>Chêne</span>
+                    </a>
 
+                    <a class="tree-card" href="arbre/hetre.html">
+                        <img src="images/hetre.jpg" alt="Hêtre">
+                        <span>Hêtre</span>
+                    </a>
+
+                    <a class="tree-card" href="arbre/bouleau.html">
+                        <img src="images/bouleau.jpg" alt="Bouleau">
+                        <span>Bouleau</span>
+                    </a>
+                </div>
+            </section>
         </section>
 
+        <!-- Boîte de dialogue des critères -->
+        <section id="criteres" class="dialog-overlay" aria-labelledby="titre-criteres">
+            <div class="dialog">
+                <header class="dialog-header">
+                    <h2 id="titre-criteres">Critères</h2>
+                    <a class="dialog-close" href="#accueil" aria-label="Fermer les critères">×</a>
+                </header>
 
+                <nav class="criteria-list" aria-label="Critères de recherche">
+                    <a href="#options-feuille-aiguille">
+                        <span>Feuille ou aiguille</span>
+                        <span aria-hidden="true">›</span>
+                    </a>
 
-        <!-- =================================================
-             ÉCRAN 3A — OPTIONS : FORME
-        ================================================== -->
+                    <a href="#options-type">
+                        <span>Type de feuilles</span>
+                        <span aria-hidden="true">›</span>
+                    </a>
 
-        <section id="options-forme" aria-labelledby="titre-forme">
+                    <a href="#options-disposition">
+                        <span>Disposition sur le rameau</span>
+                        <span aria-hidden="true">›</span>
+                    </a>
 
-            <header>
+                    <a href="#options-bord">
+                        <span>Bord de la feuille</span>
+                        <span aria-hidden="true">›</span>
+                    </a>
+                </nav>
 
-                <a href="#criteres" aria-label="Retour aux critères">
-                    ←
-                </a>
+                <a class="button button-primary dialog-action" href="index.html">Rechercher</a>
+            </div>
+        </section>
 
-                <h2 id="titre-forme">
-                    Forme de la feuille
-                </h2>
+        <!-- Boîte de dialogue : feuille ou aiguille -->
+        <section id="options-feuille-aiguille" class="dialog-overlay" aria-labelledby="titre-feuille-aiguille">
+            <div class="dialog">
+                <header class="dialog-header">
+                    <a class="dialog-back" href="#criteres" aria-label="Retour aux critères">←</a>
+                    <h2 id="titre-feuille-aiguille">Feuille ou aiguille</h2>
+                    <a class="dialog-close" href="#accueil" aria-label="Fermer">×</a>
+                </header>
 
-            </header>
+                <figure class="criterion-illustration">
+                    <img src="images/schema-feuille-aiguille.jpg" alt="Schéma montrant une aiguille et une feuille plane">
+                    <figcaption>Observez si la plante possède des aiguilles ou des feuilles planes.</figcaption>
+                </figure>
 
-
-            <!-- Schéma explicatif -->
-
-            <figure>
-
-                <img
-                    src="images/schema-forme-feuille.jpg"
-                    alt="Schéma expliquant les différentes formes de feuilles"
-                >
-
-                <figcaption>
-                    Observez la forme générale de la feuille.
-                </figcaption>
-
-            </figure>
-
-
-            <!-- Options -->
-
-            <form>
-
-                <fieldset>
-
-                    <legend>
-                        Quelle forme correspond à votre feuille ?
-                    </legend>
-
+                <fieldset class="options">
+                    <legend>Choisissez une ou plusieurs options</legend>
                     <label>
-                        <input
-                            type="checkbox"
-                            name="forme"
-                            value="ovale"
-                        >
-                        Ovale
+                        <input type="checkbox" name="structure" value="aiguilles">
+                        Aiguilles
                     </label>
-
                     <label>
-                        <input
-                            type="checkbox"
-                            name="forme"
-                            value="ronde"
-                        >
-                        Ronde
+                        <input type="checkbox" name="structure" value="feuille-plane">
+                        Feuille plane
                     </label>
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="forme"
-                            value="allongee"
-                        >
-                        Allongée
-                    </label>
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="forme"
-                            value="lobee"
-                        >
-                        Lobée
-                    </label>
-
                 </fieldset>
 
-
-                <a href="#criteres">
-                    Valider
-                </a>
-
-            </form>
-
+                <a class="button button-primary dialog-action" href="#criteres">Valider</a>
+            </div>
         </section>
 
+        <!-- Boîte de dialogue : type de feuilles -->
+        <section id="options-type" class="dialog-overlay" aria-labelledby="titre-type">
+            <div class="dialog">
+                <header class="dialog-header">
+                    <a class="dialog-back" href="#criteres" aria-label="Retour aux critères">←</a>
+                    <h2 id="titre-type">Type de feuilles</h2>
+                    <a class="dialog-close" href="#accueil" aria-label="Fermer">×</a>
+                </header>
 
+                <figure class="criterion-illustration">
+                    <img src="images/schema-type-feuille.jpg" alt="Schéma montrant les types de feuilles simples et composées">
+                    <figcaption>Commencez par déterminer si la feuille est simple ou composée.</figcaption>
+                </figure>
 
-        <!-- =================================================
-             ÉCRAN 3B — OPTIONS : BORD
-        ================================================== -->
+                <fieldset class="options">
+                    <legend>Choisissez le type de feuille</legend>
 
-        <section id="options-bord" aria-labelledby="titre-bord">
+                    <div class="option-group">
+                        <label>
+                            <input type="checkbox" name="type-feuille" value="simple">
+                            Feuille simple
+                        </label>
 
-            <header>
+                        <fieldset class="suboptions">
+                            <legend>Forme de la feuille simple</legend>
+                            <label>
+                                <input type="checkbox" name="type-feuille-simple" value="pennee">
+                                Pennée
+                            </label>
+                            <label>
+                                <input type="checkbox" name="type-feuille-simple" value="palmee">
+                                Palmée
+                            </label>
+                        </fieldset>
+                    </div>
 
-                <a href="#criteres" aria-label="Retour aux critères">
-                    ←
-                </a>
+                    <div class="option-group">
+                        <label>
+                            <input type="checkbox" name="type-feuille" value="composee">
+                            Feuille composée
+                        </label>
 
-                <h2 id="titre-bord">
-                    Bord de la feuille
-                </h2>
-
-            </header>
-
-
-            <figure>
-
-                <img
-                    src="images/schema-bord-feuille.jpg"
-                    alt="Schéma expliquant les différents types de bords de feuilles"
-                >
-
-                <figcaption>
-                    Observez le bord extérieur de la feuille.
-                </figcaption>
-
-            </figure>
-
-
-            <form>
-
-                <fieldset>
-
-                    <legend>
-                        Quel bord possède la feuille ?
-                    </legend>
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="bord"
-                            value="lisse"
-                        >
-                        Lisse
-                    </label>
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="bord"
-                            value="dentele"
-                        >
-                        Dentelé
-                    </label>
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="bord"
-                            value="crenele"
-                        >
-                        Crénelé
-                    </label>
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="bord"
-                            value="lobes"
-                        >
-                        Lobé
-                    </label>
-
+                        <fieldset class="suboptions">
+                            <legend>Forme de la feuille composée</legend>
+                            <label>
+                                <input type="checkbox" name="type-feuille-composee" value="pennee">
+                                Pennée
+                            </label>
+                            <label>
+                                <input type="checkbox" name="type-feuille-composee" value="palmee">
+                                Palmée
+                            </label>
+                        </fieldset>
+                    </div>
                 </fieldset>
 
-
-                <a href="#criteres">
-                    Valider
-                </a>
-
-            </form>
-
+                <a class="button button-primary dialog-action" href="#criteres">Valider</a>
+            </div>
         </section>
 
+        <!-- Boîte de dialogue : disposition -->
+        <section id="options-disposition" class="dialog-overlay" aria-labelledby="titre-disposition">
+            <div class="dialog">
+                <header class="dialog-header">
+                    <a class="dialog-back" href="#criteres" aria-label="Retour aux critères">←</a>
+                    <h2 id="titre-disposition">Disposition sur le rameau</h2>
+                    <a class="dialog-close" href="#accueil" aria-label="Fermer">×</a>
+                </header>
 
+                <figure class="criterion-illustration">
+                    <img src="images/schema-disposition.jpg" alt="Schéma montrant des feuilles opposées et alternes">
+                    <figcaption>Observez comment les feuilles sont disposées sur le rameau.</figcaption>
+                </figure>
 
-        <!-- =================================================
-             ÉCRAN 3C — OPTIONS : DISPOSITION
-        ================================================== -->
-
-        <section id="options-disposition" aria-labelledby="titre-disposition">
-
-            <header>
-
-                <a href="#criteres" aria-label="Retour aux critères">
-                    ←
-                </a>
-
-                <h2 id="titre-disposition">
-                    Disposition des feuilles
-                </h2>
-
-            </header>
-
-
-            <figure>
-
-                <img
-                    src="images/schema-disposition.jpg"
-                    alt="Schéma expliquant les différentes dispositions des feuilles"
-                >
-
-                <figcaption>
-                    Observez comment les feuilles sont disposées
-                    sur la branche.
-                </figcaption>
-
-            </figure>
-
-
-            <form>
-
-                <fieldset>
-
-                    <legend>
-                        Comment les feuilles sont-elles disposées ?
-                    </legend>
-
+                <fieldset class="options">
+                    <legend>Choisissez une ou plusieurs options</legend>
                     <label>
-                        <input
-                            type="checkbox"
-                            name="disposition"
-                            value="alterne"
-                        >
+                        <input type="checkbox" name="disposition" value="opposees">
+                        Opposées
+                    </label>
+                    <label>
+                        <input type="checkbox" name="disposition" value="alterne">
                         Alterne
                     </label>
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="disposition"
-                            value="opposee"
-                        >
-                        Opposée
-                    </label>
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="disposition"
-                            value="verticillee"
-                        >
-                        Verticillée
-                    </label>
-
                 </fieldset>
 
-
-                <a href="#criteres">
-                    Valider
-                </a>
-
-            </form>
-
+                <a class="button button-primary dialog-action" href="#criteres">Valider</a>
+            </div>
         </section>
 
+        <!-- Boîte de dialogue : bord -->
+        <section id="options-bord" class="dialog-overlay" aria-labelledby="titre-bord">
+            <div class="dialog">
+                <header class="dialog-header">
+                    <a class="dialog-back" href="#criteres" aria-label="Retour aux critères">←</a>
+                    <h2 id="titre-bord">Bord de la feuille</h2>
+                    <a class="dialog-close" href="#accueil" aria-label="Fermer">×</a>
+                </header>
 
+                <figure class="criterion-illustration">
+                    <img src="images/schema-bord-feuille.jpg" alt="Schéma montrant différents types de bords de feuilles">
+                    <figcaption>Observez le contour de la feuille.</figcaption>
+                </figure>
 
-        <!-- =================================================
-             ÉCRAN 3D — OPTIONS : TYPE
-        ================================================== -->
+                <fieldset class="options">
+                    <legend>Choisissez le type de bord</legend>
 
-        <section id="options-feuille" aria-labelledby="titre-feuille">
+                    <div class="option-group">
+                        <label>
+                            <input type="checkbox" name="bord" value="decoupe">
+                            Bord découpé
+                        </label>
 
-            <header>
+                        <fieldset class="suboptions">
+                            <legend>Précisez le bord découpé</legend>
+                            <label>
+                                <input type="checkbox" name="bord-decoupe" value="crenele">
+                                Crénelé
+                            </label>
+                            <label>
+                                <input type="checkbox" name="bord-decoupe" value="lobe">
+                                Lobé
+                            </label>
+                        </fieldset>
+                    </div>
 
-                <a href="#criteres" aria-label="Retour aux critères">
-                    ←
-                </a>
+                    <div class="option-group">
+                        <label>
+                            <input type="checkbox" name="bord" value="non-decoupe">
+                            Bord non-découpé
+                        </label>
 
-                <h2 id="titre-feuille">
-                    Type de feuille
-                </h2>
-
-            </header>
-
-
-            <figure>
-
-                <img
-                    src="images/schema-type-feuille.jpg"
-                    alt="Schéma expliquant les différents types de feuilles"
-                >
-
-                <figcaption>
-                    Comparez votre feuille avec les exemples.
-                </figcaption>
-
-            </figure>
-
-
-            <form>
-
-                <fieldset>
-
-                    <legend>
-                        Quel type de feuille observez-vous ?
-                    </legend>
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="type-feuille"
-                            value="simple"
-                        >
-                        Feuille simple
-                    </label>
-
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="type-feuille"
-                            value="composee"
-                        >
-                        Feuille composée
-                    </label>
-
+                        <fieldset class="suboptions">
+                            <legend>Précisez le bord non-découpé</legend>
+                            <label>
+                                <input type="checkbox" name="bord-non-decoupe" value="lisse">
+                                Lisse
+                            </label>
+                            <label>
+                                <input type="checkbox" name="bord-non-decoupe" value="ondule">
+                                Ondulé
+                            </label>
+                            <label>
+                                <input type="checkbox" name="bord-non-decoupe" value="dente">
+                                Denté
+                            </label>
+                            <label>
+                                <input type="checkbox" name="bord-non-decoupe" value="doublement-dente">
+                                Doublement denté
+                            </label>
+                        </fieldset>
+                    </div>
                 </fieldset>
 
-
-                <a href="#criteres">
-                    Valider
-                </a>
-
-            </form>
-
+                <a class="button button-primary dialog-action" href="#criteres">Valider</a>
+            </div>
         </section>
-
-
-
-        <!-- =================================================
-             ÉCRAN 4 — FICHE ARBRE : ÉRABLE
-        ================================================== -->
-
-        <section id="arbre-erable" aria-labelledby="titre-erable">
-
-            <header>
-
-                <a href="#accueil" aria-label="Retour à l'accueil">
-                    ←
-                </a>
-
-                <h2 id="titre-erable">
-                    Érable
-                </h2>
-
-            </header>
-
-
-            <figure>
-
-                <img
-                    src="images/erable.jpg"
-                    alt="Érable dans son environnement naturel"
-                >
-
-                <figcaption>
-                    Érable
-                </figcaption>
-
-            </figure>
-
-
-            <article>
-
-                <h3>À propos de l'arbre</h3>
-
-                <p>
-                    Informations sur l'érable.
-                </p>
-
-                <p>
-                    <strong>À reconnaître :</strong>
-                    informations permettant de reconnaître
-                    cet arbre.
-                </p>
-
-            </article>
-
-        </section>
-
-
-
-        <!-- =================================================
-             ÉCRAN 4 — FICHE ARBRE : CHÊNE
-        ================================================== -->
-
-        <section id="arbre-chene" aria-labelledby="titre-chene">
-
-            <header>
-
-                <a href="#accueil" aria-label="Retour à l'accueil">
-                    ←
-                </a>
-
-                <h2 id="titre-chene">
-                    Chêne
-                </h2>
-
-            </header>
-
-
-            <figure>
-
-                <img
-                    src="images/chene.jpg"
-                    alt="Chêne dans son environnement naturel"
-                >
-
-                <figcaption>
-                    Chêne
-                </figcaption>
-
-            </figure>
-
-
-            <article>
-
-                <h3>À propos de l'arbre</h3>
-
-                <p>
-                    Informations sur le chêne.
-                </p>
-
-                <p>
-                    <strong>À reconnaître :</strong>
-                    informations permettant de reconnaître
-                    cet arbre.
-                </p>
-
-            </article>
-
-        </section>
-
-
-
-        <!-- =================================================
-             ÉCRAN 4 — FICHE ARBRE : HÊTRE
-        ================================================== -->
-
-        <section id="arbre-hetre" aria-labelledby="titre-hetre">
-
-            <header>
-
-                <a href="#accueil" aria-label="Retour à l'accueil">
-                    ←
-                </a>
-
-                <h2 id="titre-hetre">
-                    Hêtre
-                </h2>
-
-            </header>
-
-
-            <figure>
-
-                <img
-                    src="images/hetre.jpg"
-                    alt="Hêtre dans son environnement naturel"
-                >
-
-                <figcaption>
-                    Hêtre
-                </figcaption>
-
-            </figure>
-
-
-            <article>
-
-                <h3>À propos de l'arbre</h3>
-
-                <p>
-                    Informations sur le hêtre.
-                </p>
-
-                <p>
-                    <strong>À reconnaître :</strong>
-                    informations permettant de reconnaître
-                    cet arbre.
-                </p>
-
-            </article>
-
-        </section>
-
-
-
-        <!-- =================================================
-             ÉCRAN 4 — FICHE ARBRE : BOULEAU
-        ================================================== -->
-
-        <section id="arbre-bouleau" aria-labelledby="titre-bouleau">
-
-            <header>
-
-                <a href="#accueil" aria-label="Retour à l'accueil">
-                    ←
-                </a>
-
-                <h2 id="titre-bouleau">
-                    Bouleau
-                </h2>
-
-            </header>
-
-
-            <figure>
-
-                <img
-                    src="images/bouleau.jpg"
-                    alt="Bouleau dans son environnement naturel"
-                >
-
-                <figcaption>
-                    Bouleau
-                </figcaption>
-
-            </figure>
-
-
-            <article>
-
-                <h3>À propos de l'arbre</h3>
-
-                <p>
-                    Informations sur le bouleau.
-                </p>
-
-                <p>
-                    <strong>À reconnaître :</strong>
-                    informations permettant de reconnaître
-                    cet arbre.
-                </p>
-
-            </article>
-
-        </section>
-
     </main>
 
-
-
-    <!-- =====================================================
-         PIED DE PAGE
-    ====================================================== -->
-
-    <footer>
-
-        <p>
-            Arboris — Identifier les arbres de nos régions
-        </p>
-
+    <footer class="site-footer">
+        <p>Projet pédagogique réalisé dans le cadre du CPNV.</p>
     </footer>
-
 </body>
 </html>
