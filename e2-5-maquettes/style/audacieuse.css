@@ -4,8 +4,6 @@
    Mobile first
    ========================================================= */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap");
-
 :root {
     --noir: #0F1115;
     --gris-fonce: #3A3F47;
@@ -450,6 +448,72 @@ main {
 
 .suboptions label {
     background: transparent;
+}
+
+/* -------------------------
+   Fiches arbre
+   ------------------------- */
+
+.tree-page {
+    padding: 2rem 0 3rem;
+}
+
+.tree-page-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+}
+
+.tree-page-header h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.tree-main-image {
+    margin: 0 0 1.5rem;
+    background: var(--gris-clair);
+    border: var(--bordure);
+    border-radius: var(--rayon);
+    overflow: hidden;
+}
+
+.tree-main-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.tree-main-image figcaption {
+    padding: 0.75rem 1rem;
+    color: var(--gris-fonce);
+    font-weight: 600;
+    text-align: center;
+}
+
+.tree-information {
+    padding: 1.25rem 1rem;
+    background: var(--gris-clair);
+    border: var(--bordure);
+    border-radius: var(--rayon);
+}
+
+.tree-information h2 {
+    margin-bottom: 0.75rem;
+}
+
+.tree-information p + p {
+    margin-top: 0.9rem;
+}
+
+.tree-information ul {
+    margin: 1rem 0 0;
+    padding-left: 1.1rem;
+    color: var(--gris-fonce);
+}
+
+.tree-information li + li {
+    margin-top: 0.4rem;
 }
 
 /* -------------------------
