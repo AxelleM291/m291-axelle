@@ -20,3 +20,4 @@ Je n'ai pas encore d'idée de projet, étant donné qu'on ne sait pas encore ce 
 _Repo cloné et ouvert dans VS Code._
 
 Page profil : https://axellem291.github.io/m291-axelle/
+Page rendu design : https://github.com/AxelleM291/m291-axelle/tree/main/design
