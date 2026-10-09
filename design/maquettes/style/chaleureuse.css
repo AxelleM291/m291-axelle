@@ -1,0 +1,431 @@
+/* ARBORIS — DIRECTION 02 : CHALEUREUSE
+   Structure HTML identique à sobre.css, mobile-first. */
+
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Nunito+Sans:wght@400;600;700;800&display=swap");
+
+:root {
+  --mousse: #526B45;
+  --terracotta: #B86645;
+  --beige: #F2E8D5;
+  --jaune: #D6A84F;
+  --brun: #3B3028;
+  --papier: #FFFCF5;
+  --beige-fonce: #E7D7BB;
+  --rayon: 22px;
+  --rayon-grand: 30px;
+  --ombre: 0 10px 26px rgba(59,48,40,.12);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; color: var(--brun); background: var(--beige);
+  font-family: "Nunito Sans", sans-serif; font-size: 1rem; line-height: 1.6;
+}
+body::before {
+  content: "❧"; position: fixed; top: 5rem; right: -.15rem; z-index: -1;
+  color: rgba(82,107,69,.13); font-size: 5rem; transform: rotate(15deg);
+  pointer-events: none;
+}
+body::after {
+  content: "❦"; position: fixed; bottom: 1rem; left: .1rem; z-index: -1;
+  color: rgba(184,102,69,.12); font-size: 4rem; transform: rotate(-20deg);
+  pointer-events: none;
+}
+h1,h2,h3 {
+  margin-top: 0; color: var(--mousse); font-family: "Lora", Georgia, serif;
+  font-weight: 700; line-height: 1.2;
+}
+h1 { font-size: 2.35rem; }
+h2 { font-size: 1.9rem; }
+h3 { font-size: 1.25rem; }
+p { margin-top: 0; }
+a { color: inherit; }
+
+body > header {
+  position: sticky; top: 0; z-index: 20; padding: 1rem 1.25rem;
+  background: var(--beige); border-bottom: 2px solid rgba(82,107,69,.15);
+}
+body > header a {
+  color: var(--mousse); font-family: "Lora", Georgia, serif;
+  font-size: 1.6rem; font-weight: 700; text-decoration: none;
+}
+main { width: min(100% - 2rem, 1100px); margin: 0 auto; }
+main > section { min-height: 100vh; padding: 2.5rem 0 3.5rem; }
+section > header { position: relative; margin-bottom: 1.8rem; }
+section > header::after {
+  content: "✿"; position: absolute; top: 0; right: 0;
+  color: var(--terracotta); font-size: 1.4rem;
+}
+
+nav[aria-label="Filtres"] {
+  display: flex; flex-direction: column; gap: .55rem; margin: 1.8rem 0 2.3rem;
+}
+nav[aria-label="Filtres"] a, form > p > a, form > a {
+  display: block; padding: .9rem 1.25rem; border-radius: 999px;
+  text-align: center; text-decoration: none; font-weight: 800;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+nav[aria-label="Filtres"] a:first-child, form > p > a, form > a {
+  color: var(--papier); background: var(--terracotta); border: 2px solid var(--terracotta);
+  box-shadow: 0 5px 0 #984D32;
+}
+nav[aria-label="Filtres"] a:first-child:hover, form > p > a:hover, form > a:hover {
+  transform: translateY(-2px); box-shadow: 0 7px 0 #984D32;
+}
+nav[aria-label="Filtres"] a:last-child {
+  align-self: center; padding: .1rem .35rem; color: var(--mousse); background: transparent;
+  border: 0; border-radius: 0; box-shadow: none; font-size: .82rem; font-weight: 700;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+nav[aria-label="Filtres"] a:last-child:hover {
+  color: var(--terracotta); transform: none; box-shadow: none;
+}
+
+/* Cartes : 2 colonnes minimum en mobile */
+#accueil ul {
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem;
+  padding: 0; margin: 0; list-style: none;
+}
+#accueil li article {
+  height: 100%; overflow: hidden; background: var(--papier); border: 0;
+  border-radius: var(--rayon); box-shadow: var(--ombre);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+#accueil li article:hover {
+  transform: translateY(-4px) rotate(-.3deg); box-shadow: 0 15px 30px rgba(59,48,40,.17);
+}
+#accueil li article a { display: block; height: 100%; color: var(--brun); text-decoration: none; }
+#accueil figure { margin: 0; }
+#accueil figure img { display: block; width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+#accueil figure figcaption { display: none; }
+#accueil article h3 { margin: 0; padding: .85rem .85rem 1rem; color: var(--mousse); font-size: 1rem; }
+
+section > header > a {
+  display: inline-flex; align-items: center; justify-content: center; width: 2.8rem;
+  height: 2.8rem; margin-bottom: .65rem; color: var(--mousse); background: var(--beige);
+  border: 0; border-radius: 50%; text-decoration: none; font-size: 1.35rem; font-weight: 800;
+}
+section > header > a:hover { color: var(--papier); background: var(--mousse); }
+[id^="arbre-"] { width: 100%; max-width: 760px; margin: 0 auto; }
+[id^="arbre-"] figure { margin: 0 0 1.5rem; }
+[id^="arbre-"] figure img {
+  display: block; width: 100%; max-height: 500px; object-fit: cover;
+  border-radius: var(--rayon-grand); box-shadow: var(--ombre);
+}
+[id^="arbre-"] figcaption { margin-top: .65rem; color: var(--brun); font-size: .9rem; }
+[id^="arbre-"] article {
+  padding: 1.4rem; background: var(--papier); border-left: 6px solid var(--jaune);
+  border-radius: 8px var(--rayon) var(--rayon) 8px; box-shadow: var(--ombre);
+}
+[id^="arbre-"] article h3 { color: var(--terracotta); }
+
+body > footer {
+  padding: 1.8rem 1rem; color: var(--brun); background: var(--beige-fonce);
+  text-align: center; font-size: .82rem;
+}
+body > footer p { margin: 0; }
+a:focus-visible, input:focus-visible { outline: 3px solid var(--jaune); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+@media (min-width: 600px) {
+  main { width: min(100% - 4rem,1100px); }
+  #accueil ul { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  nav[aria-label="Filtres"] { max-width: 520px; }
+}
+@media (min-width: 900px) {
+  main { width: min(100% - 6rem,1150px); }
+  h1 { font-size: 3.1rem; } h2 { font-size: 2.4rem; }
+  #accueil ul { grid-template-columns: repeat(4,minmax(0,1fr)); }
+}
+
+/* ==========================================
+   ARBORIS — BOÎTES DE DIALOGUE
+   CSS-only avec :target (même fonctionnement que sobre.css)
+   ========================================== */
+
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: none;
+  overflow-y: auto;
+
+  padding: 1rem;
+  background: rgba(59, 48, 40, 0.65);
+  backdrop-filter: blur(4px);
+}
+
+.dialog-overlay:target {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.dialog {
+  width: min(100%, 650px);
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+
+  margin: auto 0;
+  padding: 1.25rem;
+
+  color: var(--brun);
+  background: var(--papier);
+  border-top: 8px solid var(--terracotta);
+  border-radius: var(--rayon-grand);
+  box-shadow: 0 18px 55px rgba(59, 48, 40, 0.3);
+
+  animation: apparition-dialogue 180ms ease-out;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.dialog-header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.dialog-close,
+.dialog-back {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.75rem;
+  height: 2.75rem;
+
+  color: var(--mousse);
+  background: var(--beige);
+  border-radius: 50%;
+
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.dialog-close:hover,
+.dialog-back:hover {
+  color: var(--papier);
+  background: var(--mousse);
+}
+
+/* Liste des critères */
+
+.criteria-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.criteria-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  min-height: 3.75rem;
+  padding: 0.9rem 1rem;
+
+  color: var(--brun);
+  background: var(--beige);
+  border: 1px solid rgba(82, 107, 69, 0.15);
+  border-radius: 16px;
+
+  text-decoration: none;
+  font-weight: 800;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.criteria-list a:hover {
+  background: #E9D9BE;
+  transform: translateX(3px);
+}
+
+.criteria-list a span:last-child {
+  color: var(--terracotta);
+  font-size: 1.5rem;
+}
+
+.dialog-action {
+  margin-top: 1.5rem;
+}
+
+/* Schémas des critères */
+
+.criterion-illustration {
+  margin: 0 0 1.5rem;
+  padding: 1rem;
+  background: var(--beige);
+  border-radius: 18px;
+}
+
+.criterion-illustration img {
+  display: block;
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+}
+
+.criterion-illustration figcaption {
+  margin-top: 0.75rem;
+  color: var(--brun);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Options */
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.options > legend {
+  margin-bottom: 0.45rem;
+  color: var(--mousse);
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  min-height: 3.25rem;
+  padding: 0.75rem 0.95rem;
+
+  background: #FBF5E9;
+  border: 1px solid #E4D5BA;
+  border-radius: 16px;
+
+  cursor: pointer;
+}
+
+.options label:hover {
+  background: #F8EBD3;
+  border-color: var(--jaune);
+}
+
+.options input {
+  flex: 0 0 auto;
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--terracotta);
+}
+
+/* Sous-options dépendantes :
+   cachées tant que le choix parent n'est pas coché (:has) */
+
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.option-group > label {
+  font-weight: 700;
+}
+
+.suboptions {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  min-width: 0;
+  margin: 0 0 0.5rem 1rem;
+  padding: 0.25rem 0 0.25rem 0.75rem;
+  border: 0;
+  border-left: 3px solid var(--jaune);
+}
+
+.option-group:has(> label input:checked) > .suboptions {
+  display: flex;
+}
+
+.suboptions legend {
+  padding: 0 0.25rem;
+  color: var(--brun);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.suboptions label {
+  background: transparent;
+}
+
+/* Bouton d'action */
+
+.dialog .button-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.25rem;
+
+  color: var(--papier);
+  background: var(--terracotta);
+  border: 2px solid var(--terracotta);
+  border-radius: 999px;
+  box-shadow: 0 5px 0 #984D32;
+
+  text-align: center;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.dialog .button-primary:hover {
+  background: #A95638;
+}
+
+/* Animation d'ouverture */
+
+@keyframes apparition-dialogue {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (min-width: 900px) {
+  .dialog {
+    padding: 2rem;
+  }
+
+  .dialog-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog {
+    animation: none;
+  }
+}

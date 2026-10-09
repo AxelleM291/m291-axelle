@@ -1,0 +1,661 @@
+/* =========================================================
+   ARBORIS — MODERNE & PRAGMATIQUE
+   Même structure HTML et même fonctionnement que sobre.css.
+   Mobile first
+   ========================================================= */
+
+:root {
+    --noir: #0F1115;
+    --gris-fonce: #3A3F47;
+    --gris: #D5D8DD;
+    --gris-clair: #F2F3F5;
+    --blanc: #FFFFFF;
+    --accent: #C6F432;
+    --accent-fonce: #A8D61A;
+
+    --rayon: 4px;
+    --bordure: 2px solid var(--noir);
+}
+
+/* -------------------------
+   Base
+   ------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--blanc);
+    color: var(--noir);
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    color: var(--noir);
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+h1 {
+    font-size: 2.4rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+}
+
+/* -------------------------
+   Header
+   ------------------------- */
+
+.site-header {
+    padding: 1rem 1.25rem;
+    background: var(--noir);
+}
+
+.logo {
+    color: var(--blanc);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.logo::after {
+    content: ".";
+    color: var(--accent);
+}
+
+/* -------------------------
+   Page d'accueil
+   ------------------------- */
+
+main {
+    width: min(100% - 2rem, 1100px);
+    margin: 0 auto;
+}
+
+.home {
+    padding: 2.5rem 0 4rem;
+}
+
+.home-header {
+    margin-bottom: 1.75rem;
+}
+
+.home-header p {
+    max-width: 600px;
+    margin-top: 0.75rem;
+    color: var(--gris-fonce);
+}
+
+/* Boutons de filtre */
+
+.filter-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.button {
+    display: inline-block;
+    border: var(--bordure);
+    border-radius: var(--rayon);
+    padding: 0.9rem 1.25rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.button-primary {
+    width: 100%;
+    background: var(--accent);
+    color: var(--noir);
+}
+
+.button-primary:hover {
+    background: var(--noir);
+    color: var(--accent);
+}
+
+.button-primary:active {
+    transform: translateY(1px);
+}
+
+.clear-filters {
+    color: var(--gris-fonce);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.clear-filters:hover {
+    color: var(--noir);
+    text-decoration-color: var(--accent);
+}
+
+/* -------------------------
+   Cartes d'arbres
+   ------------------------- */
+
+.results h2 {
+    margin-bottom: 1rem;
+}
+
+.tree-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.tree-card {
+    overflow: hidden;
+    display: block;
+    background: var(--blanc);
+    border: var(--bordure);
+    border-radius: var(--rayon);
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tree-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px 0 var(--noir);
+}
+
+.tree-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-bottom: var(--bordure);
+}
+
+.tree-card span {
+    display: block;
+    padding: 0.7rem 0.75rem;
+    color: var(--noir);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* -------------------------
+   Boîtes de dialogue
+   CSS-only avec :target
+   ------------------------- */
+
+.dialog-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+
+    display: none;
+    overflow-y: auto;
+
+    padding: 1rem;
+    background: rgba(15, 17, 21, 0.8);
+}
+
+.dialog-overlay:target {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.dialog {
+    width: min(100%, 620px);
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+
+    margin: auto 0;
+    padding: 1.25rem;
+
+    background: var(--blanc);
+    border: var(--bordure);
+    border-radius: var(--rayon);
+    box-shadow: 6px 6px 0 var(--accent);
+}
+
+.dialog-header {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr 2.5rem;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: var(--bordure);
+}
+
+.dialog-header h2 {
+    text-align: center;
+}
+
+.dialog-close,
+.dialog-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    border: var(--bordure);
+    border-radius: var(--rayon);
+
+    color: var(--noir);
+    text-decoration: none;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.dialog-close:hover,
+.dialog-back:hover {
+    background: var(--noir);
+    color: var(--accent);
+}
+
+/* -------------------------
+   Liste des critères
+   ------------------------- */
+
+.criteria-list {
+    margin-bottom: 1.5rem;
+    border-top: 1px solid var(--gris);
+}
+
+.criteria-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 4rem;
+    padding: 0.8rem 0.5rem;
+
+    border-bottom: 1px solid var(--gris);
+    color: var(--noir);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.criteria-list a:hover {
+    background: var(--gris-clair);
+}
+
+.criteria-list a span:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--rayon);
+    background: var(--noir);
+    color: var(--accent);
+    font-size: 1.25rem;
+}
+
+.dialog-action {
+    margin-top: 1.5rem;
+}
+
+/* -------------------------
+   Schémas des critères
+   ------------------------- */
+
+.criterion-illustration {
+    margin: 0 0 1.5rem;
+    padding: 1rem;
+
+    background: var(--gris-clair);
+    border: 1px solid var(--gris);
+    border-radius: var(--rayon);
+}
+
+.criterion-illustration img {
+    display: block;
+    width: 100%;
+    max-height: 230px;
+    object-fit: contain;
+}
+
+.criterion-illustration figcaption {
+    margin-top: 0.75rem;
+    color: var(--gris-fonce);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* -------------------------
+   Options
+   ------------------------- */
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    padding: 0;
+    border: 0;
+}
+
+.options > legend {
+    margin-bottom: 0.5rem;
+    color: var(--noir);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    min-height: 3.2rem;
+    padding: 0.75rem 1rem;
+
+    background: var(--blanc);
+    border: 1px solid var(--gris);
+    border-radius: var(--rayon);
+
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.options label:hover {
+    border-color: var(--noir);
+}
+
+.options label:has(input:checked) {
+    border: var(--bordure);
+    background: var(--gris-clair);
+}
+
+.options input {
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: var(--noir);
+}
+
+/* -------------------------
+   Sous-options dépendantes
+   -------------------------
+
+   Sans JavaScript, :has() permet ici de cacher les
+   sous-options tant que leur parent n'est pas coché.
+   Elles apparaissent dès que le parent est sélectionné.
+   ------------------------- */
+
+.option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.option-group > label {
+    font-weight: 700;
+}
+
+.suboptions {
+    display: none;
+    margin: 0 0 0.5rem 1.5rem;
+    padding: 0.75rem;
+    border: 0;
+    border-left: 3px solid var(--accent);
+}
+
+.option-group:has(> label input:checked) > .suboptions {
+    display: flex;
+}
+
+.suboptions legend {
+    padding: 0 0.25rem;
+    color: var(--gris-fonce);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.suboptions label {
+    background: transparent;
+}
+
+/* -------------------------
+   Fiches arbre
+   ------------------------- */
+
+.tree-page {
+    padding: 2rem 0 3rem;
+}
+
+.tree-page-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+}
+
+.tree-page-header h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.tree-main-image {
+    margin: 0 0 1.5rem;
+    background: var(--gris-clair);
+    border: var(--bordure);
+    border-radius: var(--rayon);
+    overflow: hidden;
+}
+
+.tree-main-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.tree-main-image figcaption {
+    padding: 0.75rem 1rem;
+    color: var(--gris-fonce);
+    font-weight: 600;
+    text-align: center;
+}
+
+.tree-information {
+    padding: 1.25rem 1rem;
+    background: var(--gris-clair);
+    border: var(--bordure);
+    border-radius: var(--rayon);
+}
+
+.tree-information h2 {
+    margin-bottom: 0.75rem;
+}
+
+.tree-information p + p {
+    margin-top: 0.9rem;
+}
+
+.tree-information ul {
+    margin: 1rem 0 0;
+    padding-left: 1.1rem;
+    color: var(--gris-fonce);
+}
+
+.tree-information li + li {
+    margin-top: 0.4rem;
+}
+
+/* -------------------------
+   Footer
+   ------------------------- */
+
+.site-footer {
+    padding: 1.5rem 1rem;
+    background: var(--noir);
+    color: var(--gris);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+/* -------------------------
+   Focus clavier
+   ------------------------- */
+
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--noir);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px var(--accent);
+}
+
+/* -------------------------
+   Tablette
+   ------------------------- */
+
+@media (min-width: 600px) {
+    .home {
+        padding-top: 4rem;
+    }
+
+    .tree-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+
+    .button-primary {
+        width: auto;
+        min-width: 280px;
+    }
+}
+
+/* -------------------------
+   Ordinateur
+   ------------------------- */
+
+@media (min-width: 900px) {
+    h1 {
+        font-size: 3.4rem;
+    }
+
+    .tree-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    .dialog {
+        padding: 2rem;
+    }
+}
+
+/* -------------------------
+   Réduction des animations
+   ------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+
+/* -------------------------
+   Pages distinctes des arbres
+   ------------------------- */
+
+.tree-page {
+    padding: 2.5rem 0 4rem;
+}
+
+.tree-page-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.tree-page-header .dialog-back {
+    flex: 0 0 auto;
+}
+
+.tree-page-header h1 {
+    font-size: 2.2rem;
+}
+
+.tree-main-image {
+    margin: 0 0 2rem;
+}
+
+.tree-main-image img {
+    display: block;
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    border: var(--bordure);
+    border-radius: var(--rayon);
+}
+
+.tree-main-image figcaption {
+    margin-top: 0.5rem;
+    color: var(--gris-fonce);
+    font-size: 0.85rem;
+}
+
+.tree-information {
+    padding: 1.25rem;
+    background: var(--gris-clair);
+    border-left: 6px solid var(--accent);
+    border-radius: 0 var(--rayon) var(--rayon) 0;
+}
+
+.tree-information h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+}
+
+@media (min-width: 600px) {
+    .tree-page {
+        max-width: 850px;
+        margin: 0 auto;
+        padding-top: 4rem;
+    }
+
+    .tree-page-header h1 {
+        font-size: 3rem;
+    }
+}
