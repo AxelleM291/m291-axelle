@@ -54,23 +54,51 @@ Les sites compliqués d'accès, où il faut se créer un compte ou alors fermer 
 
 ## Contenu de chaque écran
 accueil : 
-- Bouton : filter la sélection (mène vers l'écran criteres)
+- Bouton : filter la sélection (ouvre la boîte de dialogue criteres)
 - Bouton : supprimer les filtres
 - Liste de cartes d'arbres correspondants aux filtres : chaque carte contient une image de l'arbre et son nom, chaque carte mène à la page arbre correspondante
 
-criteres
-- Croix en haut à droite pour refermer l'écran critere (et ramener à l'écran accueil)
-- Liste des critères avec pour chacun une flèche sur la droite. Chaque critères est un bouton menant à l'écran options correspondant
-- Bouton : Rechercher (valide les critères et mène à l'écran d'accueil)
+criteres (boîte de dialogue qui s'affiche par dessus l'écran accueil)
+- Croix en haut à droite pour refermer la boîte de dialogue criteres
+- Liste des critères avec pour chacun une flèche sur la droite. Chaque critères est un bouton ouvrant la boîte de dialogue options correspondante
+- Bouton : Rechercher (valide les critères et ferme la boîte de dialogue criteres)
 
-options
+options (boîte de dialogue)
 - Flèche vers la gauche pour revenir à la page criteres
 - Nom du critère (À côté de la flèche)
+- Croix en haut à droite pour refermer la boîte de dialogue
 - Image (schéma) explicative du critère
 - Liste à choix multiple des options correspondantes au critère
-- Bouton : Valider (enregistre la sélection et retourne à l'écran criteres)
+    - Feuille ou aiguille
+        - options :
+            - Aiguilles
+            - Feuille [plane]
+    - Type de feuilles
+        - options :
+            - feuille simple
+                - pennée
+                - palmée
+            - feuille composée
+                - pennée
+                - palmée
+    - Disposition sur le rameau
+        - options :
+            - opposées
+            - Alternes
+    - Bord de la feuille
+        - options :
+            - bord découpé
+                - crénelé
+                - lobé
+            - bord non-découpé
+                - lisse
+                - ondulé
+                - denté
+                - doublement denté
+    Les sous-critères sont affichés uniquement si le critère parent est sélectionné. Ce sont également des choix multiples.
+- Bouton : Valider (enregistre la sélection et retourne à la boîte de dialogue criteres)
 
-arbre
+arbre (page à part entière)
 - Flèche vers la gauche pour revenir à la page accueil
 - Nom de l'arbre (À côté de la flèche)
 - Photo de l'arbre pour pouvoir l'identifier visuellement
