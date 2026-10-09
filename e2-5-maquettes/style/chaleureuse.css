@@ -101,55 +101,12 @@ nav[aria-label="Filtres"] a:last-child:hover {
 #accueil figure figcaption { display: none; }
 #accueil article h3 { margin: 0; padding: .85rem .85rem 1rem; color: var(--mousse); font-size: 1rem; }
 
-/* Boîtes de dialogue visuelles, en conservant les identifiants HTML */
-#criteres, [id^="options-"] {
-  width: min(100% - 1rem,650px); min-height: auto; margin: 1rem auto;
-  padding: 1.25rem; background: var(--papier); border: 0;
-  border-top: 8px solid var(--terracotta); border-radius: var(--rayon-grand);
-  box-shadow: 0 18px 55px rgba(59,48,40,.2);
-}
-#criteres::before, [id^="options-"]::before {
-  content: "ARBORIS  ✿  CARNET BOTANIQUE"; display: block; margin-bottom: .7rem;
-  color: var(--terracotta); font-size: .68rem; font-weight: 800; letter-spacing: .1em;
-}
 section > header > a {
   display: inline-flex; align-items: center; justify-content: center; width: 2.8rem;
   height: 2.8rem; margin-bottom: .65rem; color: var(--mousse); background: var(--beige);
   border: 0; border-radius: 50%; text-decoration: none; font-size: 1.35rem; font-weight: 800;
 }
 section > header > a:hover { color: var(--papier); background: var(--mousse); }
-
-#criteres fieldset { padding: 0; border: 0; }
-#criteres legend { margin-bottom: .8rem; color: var(--brun); font-size: .88rem; font-weight: 800; }
-#criteres fieldset p { margin: .55rem 0; }
-#criteres fieldset p a {
-  display: flex; align-items: center; justify-content: space-between; min-height: 4rem;
-  padding: .85rem 1rem; color: var(--brun); background: var(--beige);
-  border: 1px solid rgba(82,107,69,.1); border-radius: 16px; text-decoration: none; font-weight: 800;
-}
-#criteres fieldset p a:hover { background: #E9D9BE; }
-#criteres fieldset p a span:last-child { color: var(--terracotta); font-size: 1.3rem; }
-
-[id^="options-"] figure {
-  margin: 0 0 1.4rem; padding: 1rem; background: var(--beige); border-radius: 18px;
-}
-[id^="options-"] figure img { display: block; width: 100%; max-height: 250px; object-fit: contain; }
-[id^="options-"] figcaption { margin-top: .7rem; color: var(--brun); font-size: .9rem; text-align: center; }
-[id^="options-"] fieldset {
-  display: flex; flex-direction: column; gap: .65rem; padding: 0; margin: 0 0 1.5rem; border: 0;
-}
-[id^="options-"] legend {
-  margin-bottom: .45rem; color: var(--mousse); font-family: "Lora", Georgia, serif;
-  font-size: 1.2rem; font-weight: 700;
-}
-[id^="options-"] label {
-  display: flex; align-items: center; gap: .75rem; min-height: 3.25rem;
-  padding: .75rem .95rem; background: #FBF5E9; border: 1px solid #E4D5BA;
-  border-radius: 16px; cursor: pointer;
-}
-[id^="options-"] label:hover { background: #F8EBD3; border-color: var(--jaune); }
-[id^="options-"] input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--terracotta); }
-
 [id^="arbre-"] { width: 100%; max-width: 760px; margin: 0 auto; }
 [id^="arbre-"] figure { margin: 0 0 1.5rem; }
 [id^="arbre-"] figure img {
@@ -177,7 +134,6 @@ a:focus-visible, input:focus-visible { outline: 3px solid var(--jaune); outline-
   main { width: min(100% - 4rem,1100px); }
   #accueil ul { grid-template-columns: repeat(3,minmax(0,1fr)); }
   nav[aria-label="Filtres"] { max-width: 520px; }
-  #criteres, [id^="options-"] { padding: 2rem; }
 }
 @media (min-width: 900px) {
   main { width: min(100% - 6rem,1150px); }
@@ -186,291 +142,290 @@ a:focus-visible, input:focus-visible { outline: 3px solid var(--jaune); outline-
 }
 
 /* ==========================================
-ARBORIS — FENÊTRES DE DIALOGUE CSS ONLY
-Ouverture et fermeture avec :target
-========================================== */
+   ARBORIS — BOÎTES DE DIALOGUE
+   CSS-only avec :target (même fonctionnement que sobre.css)
+   ========================================== */
 
-/* Toutes les fenêtres sont cachées au départ */
 .dialog-overlay {
-display: none;
-position: fixed;
-inset: 0;
-z-index: 1000;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
 
-width: 100%;
-min-height: 0;
-height: 100%;
-margin: 0;
-padding: 1rem;
+  display: none;
+  overflow-y: auto;
 
-align-items: center;
-justify-content: center;
-
-background: rgba(59, 48, 40, 0.65);
-backdrop-filter: blur(4px);
-
-overflow-y: auto;
-overscroll-behavior: contain;
+  padding: 1rem;
+  background: rgba(59, 48, 40, 0.65);
+  backdrop-filter: blur(4px);
 }
 
-/* La fenêtre correspondant au fragment de l'URL apparaît */
 .dialog-overlay:target {
-display: flex;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-/* Contenu de la fenêtre */
 .dialog {
-position: relative;
-width: 100%;
-max-width: 650px;
-max-height: 90vh;
-margin: auto;
-padding: 1.25rem;
+  width: min(100%, 650px);
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
 
-overflow-y: auto;
-overscroll-behavior: contain;
+  margin: auto 0;
+  padding: 1.25rem;
 
-color: var(--brun);
-background: var(--papier);
-border: none;
-border-top: 8px solid var(--terracotta);
-border-radius: var(--rayon-grand);
-box-shadow: 0 18px 55px rgba(59, 48, 40, 0.3);
+  color: var(--brun);
+  background: var(--papier);
+  border-top: 8px solid var(--terracotta);
+  border-radius: var(--rayon-grand);
+  box-shadow: 0 18px 55px rgba(59, 48, 40, 0.3);
 
-animation: apparition-dialogue 180ms ease-out;
+  animation: apparition-dialogue 180ms ease-out;
 }
 
-/* En-tête */
 .dialog-header {
-display: flex;
-align-items: center;
-gap: 0.75rem;
-margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .dialog-header h2 {
-flex: 1;
-margin: 0;
-font-family: "Lora", Georgia, serif;
-font-size: 1.5rem;
-line-height: 1.25;
+  flex: 1;
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.25;
 }
 
-/* Boutons retour et fermeture */
-.dialog-back,
-.dialog-close {
-display: inline-flex;
-flex: 0 0 auto;
-align-items: center;
-justify-content: center;
+.dialog-close,
+.dialog-back {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
 
-width: 2.75rem;
-height: 2.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
 
-color: var(--mousse);
-background: var(--beige);
-border-radius: 50%;
+  color: var(--mousse);
+  background: var(--beige);
+  border-radius: 50%;
 
-text-decoration: none;
-font-size: 1.5rem;
-font-weight: 800;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 800;
 }
 
-.dialog-back:hover,
-.dialog-close:hover {
-color: var(--papier);
-background: var(--mousse);
+.dialog-close:hover,
+.dialog-back:hover {
+  color: var(--papier);
+  background: var(--mousse);
 }
 
 /* Liste des critères */
+
 .criteria-list {
-display: flex;
-flex-direction: column;
-gap: 0.65rem;
-margin: 1rem 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
 }
 
 .criteria-list a {
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 
-min-height: 3.75rem;
-padding: 0.9rem 1rem;
+  min-height: 3.75rem;
+  padding: 0.9rem 1rem;
 
-color: var(--brun);
-background: var(--beige);
-border: 1px solid rgba(82, 107, 69, 0.15);
-border-radius: 16px;
+  color: var(--brun);
+  background: var(--beige);
+  border: 1px solid rgba(82, 107, 69, 0.15);
+  border-radius: 16px;
 
-text-decoration: none;
-font-weight: 800;
-transition: background 180ms ease, transform 180ms ease;
+  text-decoration: none;
+  font-weight: 800;
+  transition: background 180ms ease, transform 180ms ease;
 }
 
 .criteria-list a:hover {
-background: #E9D9BE;
-transform: translateX(3px);
+  background: #E9D9BE;
+  transform: translateX(3px);
 }
 
 .criteria-list a span:last-child {
-color: var(--terracotta);
-font-size: 1.5rem;
+  color: var(--terracotta);
+  font-size: 1.5rem;
 }
 
-/* Illustrations des critères */
+.dialog-action {
+  margin-top: 1.5rem;
+}
+
+/* Schémas des critères */
+
 .criterion-illustration {
-margin: 0 0 1.25rem;
-padding: 1rem;
-background: var(--beige);
-border-radius: 18px;
+  margin: 0 0 1.5rem;
+  padding: 1rem;
+  background: var(--beige);
+  border-radius: 18px;
 }
 
 .criterion-illustration img {
-display: block;
-width: 100%;
-max-height: 250px;
-object-fit: contain;
+  display: block;
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
 }
 
 .criterion-illustration figcaption {
-margin-top: 0.75rem;
-color: var(--brun);
-font-size: 0.9rem;
-text-align: center;
+  margin-top: 0.75rem;
+  color: var(--brun);
+  font-size: 0.9rem;
+  text-align: center;
 }
 
-/* Choix et cases à cocher */
-.dialog .options,
-.dialog .suboptions {
-min-width: 0;
-padding: 0;
-border: 0;
+/* Options */
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
-.dialog .options {
-display: flex;
-flex-direction: column;
-gap: 0.7rem;
-margin: 0 0 1.5rem;
+.options > legend {
+  margin-bottom: 0.45rem;
+  color: var(--mousse);
+  font-family: "Lora", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
-.dialog .options > legend,
-.dialog .suboptions > legend {
-margin-bottom: 0.65rem;
-color: var(--mousse);
-font-family: "Lora", Georgia, serif;
-font-size: 1.1rem;
-font-weight: 700;
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  min-height: 3.25rem;
+  padding: 0.75rem 0.95rem;
+
+  background: #FBF5E9;
+  border: 1px solid #E4D5BA;
+  border-radius: 16px;
+
+  cursor: pointer;
 }
 
-.dialog .options label,
-.dialog .suboptions label {
-display: flex;
-align-items: center;
-gap: 0.75rem;
-
-min-height: 3.25rem;
-padding: 0.75rem 0.95rem;
-
-background: #FBF5E9;
-border: 1px solid #E4D5BA;
-border-radius: 16px;
-
-cursor: pointer;
+.options label:hover {
+  background: #F8EBD3;
+  border-color: var(--jaune);
 }
 
-.dialog .options label:hover,
-.dialog .suboptions label:hover {
-background: #F8EBD3;
-border-color: var(--jaune);
+.options input {
+  flex: 0 0 auto;
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--terracotta);
 }
 
-.dialog input[type="checkbox"] {
-flex: 0 0 auto;
-width: 1.2rem;
-height: 1.2rem;
-accent-color: var(--terracotta);
+/* Sous-options dépendantes :
+   cachées tant que le choix parent n'est pas coché (:has) */
+
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-/* Sous-options regroupées sous leur choix parent */
-.dialog .option-group {
-padding: 0.8rem;
-background: rgba(242, 232, 213, 0.45);
-border-radius: 18px;
+.option-group > label {
+  font-weight: 700;
 }
 
-.dialog .suboptions {
-display: flex;
-flex-direction: column;
-gap: 0.5rem;
-margin: 0.75rem 0 0 1rem;
-padding-left: 0.75rem;
-border-left: 3px solid var(--jaune);
+.suboptions {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  min-width: 0;
+  margin: 0 0 0.5rem 1rem;
+  padding: 0.25rem 0 0.25rem 0.75rem;
+  border: 0;
+  border-left: 3px solid var(--jaune);
 }
 
-.dialog .suboptions > legend {
-font-family: "Nunito Sans", sans-serif;
-font-size: 0.9rem;
+.option-group:has(> label input:checked) > .suboptions {
+  display: flex;
 }
 
-/* Boutons d'action */
+.suboptions legend {
+  padding: 0 0.25rem;
+  color: var(--brun);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.suboptions label {
+  background: transparent;
+}
+
+/* Bouton d'action */
+
 .dialog .button-primary {
-display: flex;
-align-items: center;
-justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-width: 100%;
-min-height: 3.25rem;
-padding: 0.85rem 1.25rem;
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.25rem;
 
-color: var(--papier);
-background: var(--terracotta);
-border: 2px solid var(--terracotta);
-border-radius: 999px;
-box-shadow: 0 5px 0 #984D32;
+  color: var(--papier);
+  background: var(--terracotta);
+  border: 2px solid var(--terracotta);
+  border-radius: 999px;
+  box-shadow: 0 5px 0 #984D32;
 
-text-align: center;
-text-decoration: none;
-font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 800;
 }
 
 .dialog .button-primary:hover {
-background: #A95638;
+  background: #A95638;
 }
 
 /* Animation d'ouverture */
+
 @keyframes apparition-dialogue {
-from {
-opacity: 0;
-transform: translateY(12px) scale(0.98);
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-to {
-opacity: 1;
-transform: translateY(0) scale(1);
-}
+@media (min-width: 900px) {
+  .dialog {
+    padding: 2rem;
+  }
+
+  .dialog-header h2 {
+    font-size: 1.8rem;
+  }
 }
 
-/* Affichage sur les écrans plus larges */
-@media (min-width: 600px) {
-.dialog {
-padding: 2rem;
-}
-
-.dialog-header h2 {
-font-size: 1.8rem;
-}
-}
-
-/* Respect des préférences de mouvement */
 @media (prefers-reduced-motion: reduce) {
-.dialog {
-animation: none;
-}
-
-.criteria-list a {
-transition: none;
-}
+  .dialog {
+    animation: none;
+  }
 }
