@@ -44,4 +44,6 @@ L'audacieuse est la seule maquette dont le bouton principal **et** le focus sont
 |---|---|---|
 | Bordure des options | `#D5D8DD` — 1,43:1 ❌ | `#8A8F96` — 3,26:1 ✅ |
 
+Après l'observation, l'accent `#C6F432` a été remplacé par `#A9D18E` ([iteration.md](iteration.md)) : le bouton principal passe de 14,75:1 à **10,98:1**, toujours conforme.
+
 Correctifs si on reprenait les autres pistes : focus de la sobre → `#6E8A67` (3,50:1) · bouton de la chaleureuse → `#9C5236` (5,58:1) · focus de la chaleureuse → `#8B6A2B` (4,12:1).

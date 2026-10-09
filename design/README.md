@@ -12,7 +12,7 @@
 | 3 maquettes (sobre / chaleureuse / audacieuse) | [code](maquettes/index.html) · [sobre.png](maquettes/sobre.png) · [chaleureuse.png](maquettes/chaleureuse.png) · [audacieuse.png](maquettes/audacieuse.png) | ✅ |
 | 3 fiches critiques + choix argumenté | [critique-1](critique/critique-1.md) · [critique-2](critique/critique-2.md) · [critique-3](critique/critique-3.md) · [choix.md](critique/choix.md) | ✅ |
 | Contrastes WebAIM notés | [contrastes.md](contrastes.md) | ✅ |
-| Observation + une itération avant/après | — | ⏳ test à passer en binôme |
+| Observation + une itération avant/après | [fiche-observation.md](fiche-observation.md) · [iteration.md](iteration.md) | ✅ |
 
 ## Résultats des maquettes
 

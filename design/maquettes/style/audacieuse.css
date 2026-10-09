@@ -10,8 +10,8 @@
     --gris: #D5D8DD;
     --gris-clair: #F2F3F5;
     --blanc: #FFFFFF;
-    --accent: #C6F432;
-    --accent-fonce: #A8D61A;
+    --accent: #A9D18E;
+    --accent-fonce: #8FC27A;
 
     --rayon: 4px;
     --bordure: 2px solid var(--noir);
@@ -30,6 +30,9 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
     background: var(--blanc);
     color: var(--noir);
@@ -93,6 +96,7 @@ a {
    ------------------------- */
 
 main {
+    flex: 1;
     width: min(100% - 2rem, 1100px);
     margin: 0 auto;
 }
@@ -256,7 +260,14 @@ main {
 }
 
 .dialog-header h2 {
+    grid-column: 2;
     text-align: center;
+}
+
+/* La croix reste en haut à droite, même sans flèche retour */
+.dialog-close {
+    grid-column: 3;
+    grid-row: 1;
 }
 
 .dialog-close,
