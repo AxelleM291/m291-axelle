@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Bouleau</title>
+  <desc id="desc">Illustration stylisée d'une feuille de bouleau.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0" stop-color="#eef9e7"/>
+      <stop offset="1" stop-color="#deead7"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" x2="1">
+      <stop offset="0" stop-color="#8bc06f"/>
+      <stop offset="1" stop-color="#598c42"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="470" rx="185" ry="44" fill="#d7e2c5"/>
+  <path d="M400 170 L470 255 L400 390 L330 255 Z" fill="url(#leaf)" stroke="#244d2f" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M400 170 L400 120" stroke="#2d3f2c" stroke-width="12" stroke-linecap="round"/>
+  <path d="M400 120 L365 160" stroke="#2d3f2c" stroke-width="10" stroke-linecap="round"/>
+  <path d="M400 120 L435 160" stroke="#2d3f2c" stroke-width="10" stroke-linecap="round"/>
+  <path d="M400 390 L400 470" stroke="#2d3f2c" stroke-width="12" stroke-linecap="round"/>
+</svg>

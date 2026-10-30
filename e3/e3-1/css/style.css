@@ -1,0 +1,568 @@
+/* =========================================================
+   ARBORIS — Écran d'accueil (direction « audacieuse »)
+   Sources : design/maquettes/style/audacieuse.css,
+   design/iteration.md, design/contrastes.md
+   Mobile first : le CSS hors @media décrit le téléphone.
+   ========================================================= */
+
+/* Design tokens — palette 60-30-10
+   60 % blanc / gris clair · 30 % noir · 10 % accent vert */
+:root {
+  /* Couleurs */
+  --color-bg: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F2F3F5;
+  --color-text: #0F1115;
+  --color-text-muted: #3A3F47;
+  --color-footer-text: #D5D8DD;
+  --color-border-light: #8A8F96;
+  --color-accent: #A9D18E;
+  
+  /* Typographie */
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --text-sm: 0.8rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-h2: 1.6rem;
+  --text-h1: 2.4rem;
+  --text-h1-desktop: 3.4rem;
+
+  /* Espacements (échelle de 8 px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+
+  /* Formes */
+  --radius-card: 4px;
+  --border-width: 2px;
+  --border: var(--border-width) solid var(--color-text);
+  --shadow-card: 3px 3px 0 var(--color-text);
+  --touch-target: 48px;
+}
+
+/* -------------------------
+   Base
+   ------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Itération observation : footer collé en bas de la page */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: var(--text-h1);
+}
+
+h2 {
+  font-size: var(--text-h2);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Focus clavier visible (contraste 18,90:1) */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-text);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--color-accent);
+}
+
+/* -------------------------
+   Header
+   ------------------------- */
+
+.header-site {
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-text);
+}
+
+.logo {
+  color: var(--color-bg);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.logo::after {
+  content: ".";
+  color: var(--color-accent);
+}
+
+/* -------------------------
+   Contenu principal
+   ------------------------- */
+
+.contenu-principal {
+  flex: 1;
+  width: min(100% - 2 * var(--space-3), 1100px);
+  margin: 0 auto;
+  padding: var(--space-6) 0 var(--space-6);
+}
+
+.intro {
+  margin-bottom: var(--space-4);
+}
+
+.intro-texte {
+  max-width: 600px;
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+}
+
+/* -------------------------
+   Boutons de filtre (Flexbox : une colonne, centrée)
+   ------------------------- */
+
+.actions-filtres {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.btn-primaire {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: var(--touch-target);
+  padding: var(--space-3) var(--space-4);
+  border: var(--border);
+  border-radius: var(--radius-card);
+  background-color: var(--color-accent);
+  color: var(--color-text); /* contraste 10,98:1 */
+  font-family: inherit;
+  font-size: var(--text-base);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-primaire:hover {
+  background-color: var(--color-text);
+  color: var(--color-accent);
+}
+
+.btn-primaire:active {
+  transform: translateY(1px);
+}
+
+/* Action secondaire : lien souligné, moins visible que le bouton principal */
+.btn-secondaire {
+  display: flex;
+  align-items: center;
+  min-height: var(--touch-target);
+  padding: 0 var(--space-2);
+  border: none;
+  background: none;
+  color: var(--color-text-muted);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.btn-secondaire:hover {
+  color: var(--color-text);
+  text-decoration-color: var(--color-accent);
+}
+
+/* -------------------------
+   Grille de cartes (CSS Grid : damier 2 axes)
+   ------------------------- */
+
+.resultats h2 {
+  margin-bottom: var(--space-3);
+}
+
+.cartes-grille {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.carte {
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-card);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.carte:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-card);
+}
+
+.carte-lien {
+  display: block;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.carte img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-bottom: var(--border);
+}
+
+.carte h3 {
+  padding: var(--space-3);
+  font-size: var(--text-base);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* -------------------------
+   Boîtes de dialogue (CSS seul avec :target)
+   Un lien vers #criteres affiche la boîte dont l'id correspond.
+   ------------------------- */
+
+.dialogue-fond {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  overflow-y: auto;
+  padding: var(--space-3);
+  background: rgba(15, 17, 21, 0.8); /* --color-text à 80 % */
+}
+
+.dialogue-fond:target {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Bloque le défilement de la page derrière la boîte ouverte */
+body:has(.dialogue-fond:target) {
+  overflow: hidden;
+}
+
+.dialogue {
+  width: min(100%, 620px);
+  margin: auto 0;
+  padding: var(--space-4);
+  background-color: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: 6px 6px 0 var(--color-accent);
+}
+
+/* En-tête en Grid : [retour] [titre] [croix] */
+.dialogue-entete {
+  display: grid;
+  grid-template-columns: var(--touch-target) 1fr var(--touch-target);
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: var(--border);
+}
+
+.dialogue-entete h2 {
+  grid-column: 2;
+  text-align: center;
+  font-size: var(--text-lg);
+}
+
+/* Itération observation : la croix reste en haut à droite,
+   même sans flèche retour (boîte Critères) */
+.dialogue-fermer {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.dialogue-fermer,
+.dialogue-retour {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  border: var(--border);
+  border-radius: var(--radius-card);
+  color: var(--color-text);
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.dialogue-fermer:hover,
+.dialogue-retour:hover {
+  background-color: var(--color-text);
+  color: var(--color-accent);
+}
+
+.dialogue .btn-primaire {
+  width: 100%;
+}
+
+.dialogue-action {
+  margin-top: var(--space-4);
+}
+
+/* Liste des critères (Flexbox : texte à gauche, flèche à droite) */
+.liste-criteres {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.liste-criteres a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 4rem;
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-border-light);
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.liste-criteres a:hover {
+  background-color: var(--color-surface-alt);
+}
+
+.liste-criteres a span:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-5);
+  height: var(--space-5);
+  border-radius: var(--radius-card);
+  background-color: var(--color-text);
+  color: var(--color-accent);
+  font-size: var(--text-lg);
+}
+
+/* Illustration du critère */
+.illustration-critere {
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-card);
+}
+
+/* Emplacement provisoire tant que les schémas ne sont pas dessinés */
+.illustration-vide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  max-height: 230px;
+  margin: 0 auto;
+  border: 2px dashed var(--color-border-light);
+  border-radius: var(--radius-card);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.illustration-critere figcaption {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Options à cocher */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.options > legend {
+  margin-bottom: var(--space-2);
+  padding: 0;
+  font-size: var(--text-sm);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light); /* contraste corrigé 3,26:1 */
+  border-radius: var(--radius-card);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.options label:hover {
+  border-color: var(--color-text);
+}
+
+/* Feedback visuel : l'option cochée est mise en évidence */
+.options label:has(input:checked) {
+  border: var(--border);
+  background-color: var(--color-surface-alt);
+}
+
+.options input {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--color-text);
+}
+
+.options input:focus-visible {
+  outline: 3px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* Sous-options : cachées tant que l'option parente n'est pas cochée */
+.groupe-option {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.groupe-option > label {
+  font-weight: 700;
+}
+
+.sous-options {
+  display: none;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  border-left: 3px solid var(--color-accent);
+}
+
+.groupe-option:has(> label input:checked) > .sous-options {
+  display: flex;
+}
+
+.sous-options legend {
+  padding: 0 var(--space-1);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sous-options label {
+  background-color: transparent;
+}
+
+/* -------------------------
+   Footer
+   ------------------------- */
+
+.footer-site {
+  padding: var(--space-4) var(--space-3);
+  background-color: var(--color-text);
+  color: var(--color-footer-text); /* contraste 13,22:1 */
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* -------------------------
+   Tablette (≥ 768 px)
+   ------------------------- */
+
+@media (min-width: 768px) {
+  .contenu-principal {
+    padding-top: 4rem;
+  }
+
+  .btn-primaire {
+    width: auto;
+    min-width: 280px;
+  }
+
+  .cartes-grille {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+}
+
+/* -------------------------
+   Ordinateur (≥ 1024 px)
+   ------------------------- */
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: var(--text-h1-desktop);
+  }
+
+  .cartes-grille {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .dialogue {
+    padding: var(--space-5);
+  }
+}
+
+/* -------------------------
+   Réduction des animations
+   ------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+
+  .carte:hover,
+  .btn-primaire:active {
+    transform: none;
+  }
+}

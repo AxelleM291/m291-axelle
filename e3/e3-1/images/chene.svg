@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Chêne</title>
+  <desc id="desc">Illustration stylisée d'une feuille de chêne.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0" stop-color="#f7f1d7"/>
+      <stop offset="1" stop-color="#e3dfb5"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" x2="1">
+      <stop offset="0" stop-color="#7aa15a"/>
+      <stop offset="1" stop-color="#456f37"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="470" rx="200" ry="45" fill="#d9ddbd"/>
+  <path d="M400 150 C470 150, 515 200, 510 260 C520 310, 480 340, 430 330 C440 365, 420 410, 380 420 C345 410, 325 370, 335 330 C285 340, 245 310, 255 260 C250 200, 295 150, 400 150 Z" fill="url(#leaf)" stroke="#234328" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M395 150 L395 110" stroke="#2d2f24" stroke-width="12" stroke-linecap="round"/>
+  <path d="M395 110 L370 155" stroke="#2d2f24" stroke-width="10" stroke-linecap="round"/>
+  <path d="M395 110 L425 155" stroke="#2d2f24" stroke-width="10" stroke-linecap="round"/>
+  <path d="M395 330 L395 475" stroke="#2d2f24" stroke-width="12" stroke-linecap="round"/>
+</svg>
